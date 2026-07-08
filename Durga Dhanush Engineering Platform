@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Durga Dhanush Yaragani — AI Engineer, Backend Developer, Cloud & DevOps. Building LLM applications, REST APIs, RAG systems, and cloud-native pipelines.">
+<title>Durga Dhanush Yaragani — Engineering Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#ffffff;--bg-2:#f8f8f7;--bg-3:#f1f0ed;
+  --border:#e4e3de;--border-strong:#c9c8c3;
+  --text:#0d0d0c;--text-2:#4a4945;--text-3:#9e9d96;
+  --accent:#1a56db;--accent-bg:#eff4ff;--accent-border:#bfcffd;
+  --teal:#0d7a5f;--teal-bg:#dcf5ed;
+  --amber:#92400e;--amber-bg:#fef3c7;
+  --font:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+  --r:6px;--rl:10px;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+  --sw:240px;--tx:.15s ease;
+}
+[data-theme="dark"]{
+  --bg:#0d0d0c;--bg-2:#161614;--bg-3:#1e1e1c;
+  --border:#2a2a28;--border-strong:#3d3d3a;
+  --text:#f0efe8;--text-2:#b4b2a9;--text-3:#6e6d66;
+  --accent:#4e82ee;--accent-bg:#0f1f40;--accent-border:#1e3a70;
+  --teal:#34d399;--teal-bg:#052e1e;
+  --amber:#fbbf24;--amber-bg:#1c1207;
+  --shadow:0 1px 3px rgba(0,0,0,.3);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--font);cursor:pointer;background:none;border:none}
+ul,ol{list-style:none}
+p{margin-bottom:14px;color:var(--text-2)}
+p:last-child{margin-bottom:0}
+h1,h2,h3,h4{color:var(--text);font-weight:600;letter-spacing:-.02em;line-height:1.25}
+h1{font-size:28px}h2{font-size:22px;margin-bottom:8px}h3{font-size:17px;margin-bottom:6px}
+h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);font-family:var(--mono);margin-bottom:10px}
+code{font-family:var(--mono);font-size:12px;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--accent)}
+hr{border:none;border-top:1px solid var(--border);margin:28px 0}
+/* LAYOUT */
+.layout{display:flex;min-height:100vh}
+.sidebar{width:var(--sw);flex-shrink:0;position:fixed;top:0;left:0;bottom:0;background:var(--bg-2);border-right:1px solid var(--border);overflow-y:auto;z-index:50;display:flex;flex-direction:column;transition:transform var(--tx)}
+.main{margin-left:var(--sw);flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px;height:52px;gap:12px}
+.content-area{max-width:844px;margin:0 auto;padding:48px 32px}
+/* SIDEBAR */
+.sidebar-header{padding:16px 16px 10px;border-bottom:1px solid var(--border)}
+.sidebar-avatar{width:36px;height:36px;border-radius:8px;background:var(--accent-bg);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--accent);font-family:var(--mono);margin-bottom:10px}
+.sidebar-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
+.sidebar-role{font-size:11px;color:var(--text-3);margin-top:2px}
+.sidebar-search{margin:10px 12px 4px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;gap:6px;padding:6px 10px;cursor:pointer;width:calc(100% - 24px)}
+.sidebar-search span{font-size:12px;color:var(--text-3)}
+.sidebar-search kbd{margin-left:auto;font-size:10px;color:var(--text-3);background:var(--bg-2);border:1px solid var(--border);border-radius:3px;padding:1px 4px;font-family:var(--mono)}
+.nav-section{padding:10px 12px 2px}
+.nav-section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);padding:0 6px;margin-bottom:4px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:var(--r);font-size:13px;color:var(--text-2);cursor:pointer;transition:background var(--tx),color var(--tx);width:100%}
+.nav-item:hover{background:var(--bg-3);color:var(--text)}
+.nav-item.active{background:var(--accent-bg);color:var(--accent)}
+.nav-icon{width:15px;flex-shrink:0;opacity:.55}
+.nav-item.active .nav-icon{opacity:1}
+.nav-badge{margin-left:auto;font-size:10px;font-weight:600;background:var(--bg-3);color:var(--text-3);border-radius:100px;padding:1px 6px;font-family:var(--mono)}
+.sidebar-footer{margin-top:auto;padding:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.theme-toggle{flex:1;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3);padding:6px 8px;border-radius:var(--r);transition:background var(--tx)}
+.theme-toggle:hover{background:var(--bg-3);color:var(--text)}
+.sb-link{width:30px;height:30px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:background var(--tx),color var(--tx)}
+.sb-link:hover{background:var(--bg-3);color:var(--text)}
+/* TOPBAR */
+.topbar-bc{font-size:13px;color:var(--text-3);display:flex;align-items:center;gap:6px}
+.topbar-bc .sep{color:var(--border-strong)}
+.topbar-bc .cur{color:var(--text);font-weight:500}
+.topbar-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.tbtn{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:5px 12px;border-radius:var(--r);border:1px solid var(--border);color:var(--text-2);transition:all var(--tx)}
+.tbtn:hover{border-color:var(--border-strong);color:var(--text);background:var(--bg-2)}
+.tbtn.accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tbtn.accent:hover{opacity:.9}
+.hamburger{display:none;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--r);color:var(--text-2);margin-right:8px}
+.hamburger:hover{background:var(--bg-2)}
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+/* HERO */
+.hero-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;font-family:var(--mono);padding:4px 10px;border-radius:100px;background:var(--teal-bg);color:var(--teal);border:1px solid rgba(13,122,95,.2);margin-bottom:20px}
+[data-theme="dark"] .hero-status{border-color:rgba(52,211,153,.2)}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:sPulse 2s ease-in-out infinite}
+@keyframes sPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-name{font-size:clamp(30px,4.5vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.08;color:var(--text);margin-bottom:6px}
+.hero-title{font-size:18px;color:var(--text-3);font-weight:400;margin-bottom:20px;letter-spacing:-.01em}
+.hero-lead{font-size:15px;max-width:600px;line-height:1.75;color:var(--text-2);margin-bottom:28px}
+.hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-bottom:28px}
+.metric-cell{background:var(--bg);padding:16px 20px}
+.metric-n{font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--text);font-family:var(--mono);margin-bottom:2px}
+.metric-label{font-size:11px;color:var(--text-3);line-height:1.4}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.tag{font-size:11px;font-family:var(--mono);padding:3px 8px;border-radius:var(--r);background:var(--bg-3);color:var(--text-2);border:1px solid var(--border)}
+.tag.hl{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-border)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:8px 16px;border-radius:var(--r);border:1px solid var(--border);color:var(--text-2);transition:all var(--tx)}
+.cta:hover{border-color:var(--border-strong);color:var(--text);background:var(--bg-2)}
+.cta.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.cta.primary:hover{opacity:.85}
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--border)}
+.tl-entry{position:relative;margin-bottom:32px}
+.tl-entry:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-24px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--border);transition:border-color var(--tx)}
+.tl-entry:hover .tl-dot{border-color:var(--accent)}
+.tl-dot.done{background:var(--accent);border-color:var(--accent)}
+.tl-dot.current{background:var(--teal);border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-bg)}
+.tl-dot.next{border-style:dashed}
+.tl-meta{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.tl-period{font-size:11px;font-family:var(--mono);color:var(--text-3)}
+.tl-title{font-size:15px;font-weight:600;color:var(--text)}
+.tl-body{font-size:13px;color:var(--text-2);line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.chip{font-size:10px;font-family:var(--mono);padding:2px 7px;border-radius:var(--r);background:var(--bg-3);color:var(--text-3);border:1px solid var(--border)}
+/* PROJECT CARDS */
+.pfilters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.fbtn{font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px;border:1px solid var(--border);color:var(--text-3);transition:all var(--tx)}
+.fbtn:hover{border-color:var(--border-strong);color:var(--text)}
+.fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pgrid{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden}
+.prow{background:var(--bg);padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;cursor:pointer;transition:background var(--tx)}
+.prow:hover{background:var(--bg-2)}
+.prow-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.prow-desc{font-size:13px;color:var(--text-2);line-height:1.5;margin-bottom:10px}
+.prow-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pfocus{font-size:10px;font-weight:600;font-family:var(--mono);padding:2px 8px;border-radius:var(--r);white-space:nowrap}
+.f-ai{background:#f0fdf4;color:#166534}
+.f-backend{background:#fdf4ff;color:#7e22ce}
+.f-cloud{background:var(--amber-bg);color:var(--amber)}
+.f-devops{background:#fff7ed;color:#c2410c}
+.f-arch{background:var(--accent-bg);color:var(--accent)}
+[data-theme="dark"] .f-ai{background:#052e16;color:#34d399}
+[data-theme="dark"] .f-backend{background:#1e0b2e;color:#c084fc}
+[data-theme="dark"] .f-cloud{background:#1c1207;color:var(--amber)}
+[data-theme="dark"] .f-devops{background:#1c0a00;color:#fb923c}
+.parrow{color:var(--text-3);font-size:18px;margin-top:2px;transition:transform var(--tx),color var(--tx)}
+.prow:hover .parrow{transform:translateX(3px);color:var(--text)}
+/* PROJECT DETAIL */
+.pdetail{display:none}
+.pdetail.open{display:block}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-3);margin-bottom:28px;padding:6px 10px;border-radius:var(--r);transition:all var(--tx)}
+.back-btn:hover{background:var(--bg-2);color:var(--text)}
+/* CALLOUTS */
+.callout{padding:14px 18px;border-radius:var(--rl);margin:18px 0;border-left:3px solid}
+.callout.info{background:var(--accent-bg);border-color:var(--accent)}
+.callout.success{background:var(--teal-bg);border-color:var(--teal)}
+.callout.warning{background:var(--amber-bg);border-color:var(--amber)}
+.callout.note{background:var(--bg-3);border-color:var(--border-strong)}
+.callout-title{font-size:10px;font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.callout.info .callout-title{color:var(--accent)}
+.callout.success .callout-title{color:var(--teal)}
+.callout.warning .callout-title{color:var(--amber)}
+.callout.note .callout-title{color:var(--text-3)}
+.callout p{font-size:13px;margin:0;line-height:1.65;color:inherit}
+.callout.info p,.callout.info .callout-title~p{color:var(--accent)}
+.callout.success p{color:var(--teal)}
+.callout.warning p{color:var(--amber)}
+.callout.note p{color:var(--text-2)}
+/* CODE BLOCKS */
+.cblock{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--rl);overflow-x:auto;margin:16px 0}
+.cblock-hdr{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--border)}
+.cblock-lbl{font-size:11px;font-family:var(--mono);color:var(--text-3)}
+.cblock-lang{margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--text-3);background:var(--bg-2);border:1px solid var(--border);padding:1px 6px;border-radius:3px}
+.cblock pre{padding:16px;font-family:var(--mono);font-size:12px;color:var(--text-2);line-height:1.8;white-space:pre}
+.ac1{color:var(--text);font-weight:500}
+.ac2{color:var(--accent)}
+.ac3{color:var(--teal)}
+.ac4{color:var(--text-3);font-style:italic}
+/* GRID */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.icard{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--rl);padding:18px}
+.icard h4{margin-bottom:10px}
+.ilist{display:flex;flex-direction:column;gap:7px}
+.ilist li{font-size:13px;color:var(--text-2);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.ilist li::before{content:'→';color:var(--text-3);flex-shrink:0;margin-top:1px;font-size:12px}
+.tpills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tpill{font-size:11px;font-family:var(--mono);padding:3px 9px;border:1px solid var(--border);border-radius:var(--r);color:var(--text-2);background:var(--bg)}
+.tpill.hl{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-border)}
+/* SKILLS */
+.sg-block{border-top:2px solid var(--text);padding-top:12px;margin-bottom:28px}
+.sg-title{font-size:11px;font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--text);margin-bottom:12px}
+.skill-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.skill-name{font-size:13px;color:var(--text-2);min-width:180px}
+.skill-track{flex:1;height:4px;background:var(--bg-3);border-radius:100px;overflow:hidden}
+.skill-fill{height:100%;border-radius:100px}
+.b-confident{background:var(--teal)}
+.b-working{background:var(--accent)}
+.b-learning{background:var(--amber)}
+.skill-lbl{font-size:10px;font-family:var(--mono);color:var(--text-3);min-width:72px;text-align:right}
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.cert-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;transition:border-color var(--tx)}
+.cert-card:hover{border-color:var(--border-strong)}
+.cert-issuer{font-size:10px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:6px}
+.cert-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.35}
+.cert-desc{font-size:12px;color:var(--text-3);line-height:1.55}
+/* JOURNEY */
+.jgrid{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;gap:1px;background:var(--border)}
+.jcol{background:var(--bg);padding:20px}
+.jcol-title{font-size:10px;font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid}
+.j-confident .jcol-title{color:var(--teal);border-color:var(--teal)}
+.j-active .jcol-title{color:var(--accent);border-color:var(--accent)}
+.j-next .jcol-title{color:var(--text-3);border-color:var(--border-strong)}
+.jitems{display:flex;flex-direction:column;gap:7px}
+.jitems li{font-size:13px;color:var(--text-2);line-height:1.5}
+/* GUIDE */
+.guide-wrap{border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;height:520px;background:var(--bg)}
+.guide-hdr{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--bg-2)}
+.guide-av{width:28px;height:28px;border-radius:6px;background:var(--accent-bg);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--accent);font-family:var(--mono);font-weight:600}
+.guide-ttl{font-size:13px;font-weight:600;color:var(--text)}
+.guide-sub{font-size:11px;color:var(--text-3)}
+.mode-pills{margin-left:auto;display:flex;gap:4px}
+.mpill{font-size:10px;font-family:var(--mono);padding:3px 8px;border-radius:100px;border:1px solid var(--border);color:var(--text-3);transition:all var(--tx)}
+.mpill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.guide-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.gmsg{display:flex;gap:10px;max-width:90%}
+.gmsg.user{margin-left:auto;flex-direction:row-reverse}
+.mav{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;font-family:var(--mono)}
+.gmsg.assistant .mav{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border)}
+.gmsg.user .mav{background:var(--bg-3);color:var(--text-3);border:1px solid var(--border)}
+.mbubble{padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.65}
+.gmsg.assistant .mbubble{background:var(--bg-2);color:var(--text-2);border:1px solid var(--border);border-top-left-radius:2px}
+.gmsg.user .mbubble{background:var(--accent);color:#fff;border-top-right-radius:2px}
+.gmsg.assistant .mbubble p{color:var(--text-2);font-size:13px}
+.typing-dots{display:flex;gap:4px;align-items:center;padding:4px 0}
+.typing-dots span{width:5px;height:5px;border-radius:50%;background:var(--text-3);animation:tdot 1.2s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:.2s}
+.typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+.guide-sugg{padding:10px 16px;border-top:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap;background:var(--bg-2)}
+.sug-chip{font-size:11px;padding:4px 10px;border-radius:100px;border:1px solid var(--border);color:var(--text-2);background:var(--bg);transition:all var(--tx)}
+.sug-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.guide-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg)}
+.ginput{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:13px;color:var(--text);font-family:var(--font);outline:none;transition:border-color var(--tx)}
+.ginput:focus{border-color:var(--accent)}
+.ginput::placeholder{color:var(--text-3)}
+.gsend{padding:8px 14px;background:var(--accent);color:#fff;border-radius:var(--r);font-size:12px;font-weight:600;transition:opacity var(--tx)}
+.gsend:hover{opacity:.88}
+/* COMMAND PALETTE */
+.pal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;display:none;align-items:flex-start;justify-content:center;padding-top:15vh;backdrop-filter:blur(2px)}
+.pal-overlay.open{display:flex}
+.pal-box{width:100%;max-width:560px;background:var(--bg);border:1px solid var(--border-strong);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden}
+.pal-input-row{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.pal-input{flex:1;background:none;border:none;outline:none;font-size:15px;color:var(--text);font-family:var(--font)}
+.pal-input::placeholder{color:var(--text-3)}
+.pal-results{max-height:380px;overflow-y:auto;padding:6px}
+.pal-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--r);font-size:13px;color:var(--text-2);cursor:pointer;transition:background var(--tx),color var(--tx)}
+.pal-item:hover,.pal-item.sel{background:var(--accent-bg);color:var(--accent)}
+.pal-type{font-size:10px;font-family:var(--mono);color:var(--text-3);background:var(--bg-3);padding:2px 6px;border-radius:3px;margin-left:auto;white-space:nowrap}
+.pal-footer{padding:8px 14px;border-top:1px solid var(--border);display:flex;gap:16px;background:var(--bg-2)}
+.pal-hint{font-size:11px;color:var(--text-3);display:flex;align-items:center;gap:4px}
+.pal-hint kbd{font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:1px 4px;font-family:var(--mono);color:var(--text-3)}
+/* GITHUB */
+.repo-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden}
+.repo-row{background:var(--bg);padding:18px 22px;display:grid;grid-template-columns:1fr 180px 140px;gap:16px;align-items:start;transition:background var(--tx)}
+.repo-row:hover{background:var(--bg-2)}
+.repo-name{font-size:13px;font-weight:600;font-family:var(--mono);color:var(--accent);margin-bottom:3px}
+.repo-desc{font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:8px}
+.repo-concepts{font-size:11px;color:var(--text-2);line-height:1.6}
+.repo-stack{font-size:11px;font-family:var(--mono);color:var(--text-3);line-height:1.7}
+.repo-stat{text-align:right}
+.sbadge{font-size:10px;font-family:var(--mono);padding:2px 8px;border-radius:100px;display:inline-flex;align-items:center;gap:4px}
+.sbadge.active{background:var(--teal-bg);color:var(--teal)}
+.sbadge.building{background:var(--amber-bg);color:var(--amber)}
+.sbadge-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+/* PHILOSOPHY */
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden}
+.pcell{background:var(--bg);padding:20px 22px;border-top:3px solid transparent;transition:border-color var(--tx)}
+.pcell:hover{border-top-color:var(--accent)}
+.pcell-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.pcell-text{font-size:13px;color:var(--text-2);line-height:1.65}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.citem{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--rl);background:var(--bg-2);transition:border-color var(--tx)}
+.citem:hover{border-color:var(--border-strong)}
+.citem-lbl{font-size:10px;font-family:var(--mono);color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.citem-val{font-size:13px;font-weight:500;color:var(--text)}
+/* READING BAR */
+.rbar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:999;transition:width .1s linear}
+/* PRINT */
+@media print{.sidebar,.topbar,.pal-overlay,.guide-wrap{display:none!important}.main{margin-left:0!important}.content-area{padding:20px!important}.page{display:block!important}}
+/* RESPONSIVE */
+@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.hamburger{display:flex}.two-col,.jgrid,.phil-grid,.contact-grid{grid-template-columns:1fr}.hero-metrics{grid-template-columns:1fr 1fr}.repo-row{grid-template-columns:1fr}.repo-stack,.repo-stat{display:none}.mode-pills{display:none}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="rbar" id="rbar" style="width:0%"></div>
+
+<!-- COMMAND PALETTE -->
+<div class="pal-overlay" id="cmdPal">
+  <div class="pal-box">
+    <div class="pal-input-row">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--text-3);flex-shrink:0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="pal-input" id="palInput" placeholder="Search pages, projects, skills..." autocomplete="off" spellcheck="false">
+      <kbd style="font-size:11px;color:var(--text-3);font-family:var(--mono);padding:2px 6px;background:var(--bg-2);border:1px solid var(--border);border-radius:3px">ESC</kbd>
+    </div>
+    <div class="pal-results" id="palResults"></div>
+    <div class="pal-footer">
+      <span class="pal-hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span class="pal-hint"><kbd>↵</kbd> open</span>
+      <span class="pal-hint"><kbd>ESC</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar">DD</div>
+      <div class="sidebar-name">Durga Dhanush Yaragani</div>
+      <div class="sidebar-role">AI Engineer · Backend · Cloud</div>
+    </div>
+    <button class="sidebar-search" onclick="openPal()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--text-3)"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <span>Search...</span><kbd>⌘K</kbd>
+    </button>
+    <div class="nav-section">
+      <div class="nav-section-label">Overview</div>
+      <button class="nav-item active" onclick="nav('home')" data-p="home">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
+      </button>
+      <button class="nav-item" onclick="nav('timeline')" data-p="timeline">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Engineering Timeline
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-label">Work</div>
+      <button class="nav-item" onclick="nav('projects')" data-p="projects">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Projects<span class="nav-badge">6</span>
+      </button>
+      <button class="nav-item" onclick="nav('experience')" data-p="experience">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Experience
+      </button>
+      <button class="nav-item" onclick="nav('github')" data-p="github">
+        <svg class="nav-icon" width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-label">Engineer</div>
+      <button class="nav-item" onclick="nav('skills')" data-p="skills">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Skills
+      </button>
+      <button class="nav-item" onclick="nav('certs')" data-p="certs">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Certifications<span class="nav-badge">6</span>
+      </button>
+      <button class="nav-item" onclick="nav('learning')" data-p="learning">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Learning Journey
+      </button>
+      <button class="nav-item" onclick="nav('philosophy')" data-p="philosophy">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Philosophy
+      </button>
+      <button class="nav-item" onclick="nav('guide')" data-p="guide">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Engineering Guide<span class="nav-badge" style="background:var(--accent-bg);color:var(--accent)">AI</span>
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-label">Connect</div>
+      <button class="nav-item" onclick="nav('contact')" data-p="contact">
+        <svg class="nav-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact
+      </button>
+    </div>
+    <div class="sidebar-footer">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg id="themeIco" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <span id="themeLbl" style="font-size:12px;">Light</span>
+      </button>
+      <a class="sb-link" href="https://github.com/yddhanush" target="_blank" title="GitHub">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a class="sb-link" href="https://linkedin.com/in/durgadhanush" target="_blank" title="LinkedIn">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <button class="hamburger" onclick="document.getElementById('sidebar').classList.toggle('open')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-bc">
+        <span>yddhanush</span><span class="sep">/</span>
+        <span class="cur" id="bc">home</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="tbtn" onclick="openPal()">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Search <kbd style="font-size:10px;color:var(--text-3);background:var(--bg-2);border:1px solid var(--border);border-radius:3px;padding:1px 4px;font-family:var(--mono)">⌘K</kbd>
+        </button>
+        <button class="tbtn accent" onclick="window.print()">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume PDF
+        </button>
+      </div>
+    </div>
+    <div class="content-area" id="contentArea">
+<!-- ═══ HOME ═══════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero-status"><div class="hero-dot"></div>Open to AI &amp; Backend Engineering roles · May 2026</div>
+  <h1 class="hero-name">Durga Dhanush<br>Yaragani</h1>
+  <p class="hero-title">AI Engineer · Backend Developer · Cloud &amp; DevOps</p>
+  <p class="hero-lead">I build production-grade AI systems — LLM pipelines, RAG applications, REST APIs, and cloud-native deployments. My work sits at the intersection of backend engineering and Generative AI: systems where prompt design, API architecture, and retrieval logic must work together to produce something reliable at scale.</p>
+  <div class="hero-metrics">
+    <div class="metric-cell"><div class="metric-n">6</div><div class="metric-label">Shipped projects with architecture docs</div></div>
+    <div class="metric-cell"><div class="metric-n">6</div><div class="metric-label">Industry certifications across cloud &amp; security</div></div>
+    <div class="metric-cell"><div class="metric-n">2</div><div class="metric-label">Roles at The Entrepreneurship Network</div></div>
+    <div class="metric-cell"><div class="metric-n">O</div><div class="metric-label">Grade — AICTE IoT Cloud Internship (Outstanding)</div></div>
+  </div>
+  <div class="hero-tags">
+    <span class="tag hl">Python</span><span class="tag hl">FastAPI</span><span class="tag hl">LLMs</span><span class="tag hl">RAG</span><span class="tag hl">Prompt Engineering</span>
+    <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">MongoDB</span><span class="tag">Socket.IO</span><span class="tag">Terraform</span><span class="tag">n8n</span>
+  </div>
+  <div class="hero-ctas">
+    <button class="cta primary" onclick="nav('projects')">View Projects</button>
+    <button class="cta" onclick="nav('guide')">Ask the Engineering Guide</button>
+    <button class="cta" onclick="nav('contact')">Contact</button>
+  </div>
+  <hr>
+  <h3 style="margin-bottom:16px;">What I'm focused on now</h3>
+  <div class="two-col">
+    <div class="icard"><h4>Building</h4><ul class="ilist">
+      <li>LLM-powered backends with structured output schema contracts</li>
+      <li>RAG pipelines for document-grounded question answering</li>
+      <li>Automated DevSecOps CI/CD workflows on AWS</li>
+      <li>Agentic AI workflows using LangGraph</li>
+    </ul></div>
+    <div class="icard"><h4>Learning</h4><ul class="ilist">
+      <li>Kubernetes — moving from working knowledge to hands-on clusters</li>
+      <li>Prometheus + Grafana for production observability</li>
+      <li>Vector databases: Pinecone, Qdrant, Weaviate</li>
+      <li>MLOps tooling and model lifecycle management</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══ TIMELINE ════════════════════════════════════════════════ -->
+<div class="page" id="page-timeline">
+  <h2>Engineering Timeline</h2>
+  <p>Each step built on the last. The progression from REST APIs to AI systems to cloud deployment to DevSecOps is deliberate — each project introduced a constraint the next one had to solve.</p>
+  <div style="height:32px"></div>
+  <div class="timeline">
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Nov 2025</span><span class="tl-title">Backend APIs &amp; AI Automation Internship</span></div>
+      <div class="tl-body">Joined The Entrepreneurship Network as an AI Intern. Built FastAPI backends, integrated LLM APIs, contributed to workflow automation using n8n. First production exposure to AI-powered systems running against real business use cases.</div>
+      <div class="chips"><span class="chip">FastAPI</span><span class="chip">LLM APIs</span><span class="chip">n8n</span><span class="chip">Python</span><span class="chip">REST APIs</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Dec 2025</span><span class="tl-title">AI Fake News Detection — Prompt-as-Contract Design</span></div>
+      <div class="tl-body">Moved beyond basic LLM calls. Designed an output schema enforced inside the prompt itself — making responses machine-parseable. First systematic application of treating prompt structure as an API contract rather than natural language instruction.</div>
+      <div class="chips"><span class="chip">Prompt Engineering</span><span class="chip">Output Schema Design</span><span class="chip">MongoDB</span><span class="chip">Docker</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Jan 2026</span><span class="tl-title">RAG Research Assistant — Retrieval Before Generation</span></div>
+      <div class="tl-body">Introduced the retrieval layer: documents chunked, embedded, indexed, then retrieved semantically before LLM inference. Grounded generation in actual document content rather than model memory — measurably reducing hallucination risk.</div>
+      <div class="chips"><span class="chip">RAG</span><span class="chip">Vector Search</span><span class="chip">Context Engineering</span><span class="chip">Chunking Strategy</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Jan 2026</span><span class="tl-title">AICTE IoT Cloud Internship — Grade O (Outstanding)</span></div>
+      <div class="tl-body">10-week AWS Skill Builder curriculum via EduSkills/AICTE. Covered IoT cloud architecture, device-to-cloud pipelines, and edge computing patterns. Directly reinforced the Cloud &amp; Edge Computing degree specialisation with structured AWS lab work.</div>
+      <div class="chips"><span class="chip">AWS IoT</span><span class="chip">Cloud Architecture</span><span class="chip">Edge Computing</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Feb 2026</span><span class="tl-title">Real-Time Booking + DevSecOps Pipeline</span></div>
+      <div class="tl-body">Concurrency challenges in the booking system forced atomic database operations and real-time WebSocket sync. The DevSecOps pipeline made vulnerability scanning a blocking CI stage — not a post-deploy alert. Security moved from afterthought to delivery gate.</div>
+      <div class="chips"><span class="chip">Socket.IO</span><span class="chip">Concurrency</span><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">DevSecOps</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Mar 2026</span><span class="tl-title">Promoted to Scrum Master · AWS Event-Driven Pipeline</span></div>
+      <div class="tl-body">Promoted based on delivery performance and team coordination contributions. Simultaneously designed a serverless event-driven pipeline using Lambda, S3, CloudWatch, and Terraform — applying Infrastructure as Code for the first time at project scale.</div>
+      <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">S3</span><span class="chip">Terraform</span><span class="chip">IaC</span><span class="chip">Scrum Master</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot current"></div>
+      <div class="tl-meta"><span class="tl-period">Now</span><span class="tl-title">Agentic AI · Kubernetes · Observability</span></div>
+      <div class="tl-body">Building toward multi-step agentic workflows with LangGraph. Adding production observability skills via Prometheus and Grafana. Deepening Kubernetes knowledge for container orchestration beyond single-host Docker deployments.</div>
+      <div class="chips"><span class="chip">LangGraph</span><span class="chip">Kubernetes</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot next"></div>
+      <div class="tl-meta"><span class="tl-period">Next</span><span class="tl-title">Vector Databases · MLOps · Platform Engineering</span></div>
+      <div class="tl-body">Planned: production-grade vector database integration (Pinecone, Qdrant), MLOps tooling and model lifecycle management, AI observability with eval frameworks. Long-term direction: Platform Engineering for AI systems.</div>
+      <div class="chips"><span class="chip">Pinecone</span><span class="chip">MLOps</span><span class="chip">AI Observability</span><span class="chip">MCP</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROJECTS ════════════════════════════════════════════════ -->
+<div class="page" id="page-projects">
+  <div id="plist">
+    <h2>Projects</h2>
+    <p>Six engineering case studies — each documents the problem, architecture, decisions made and why, and what I'd change. Click any project to open the full case study.</p>
+    <div class="pfilters">
+      <button class="fbtn active" onclick="filterP('all',this)">All</button>
+      <button class="fbtn" onclick="filterP('ai',this)">AI · LLMs</button>
+      <button class="fbtn" onclick="filterP('backend',this)">Backend</button>
+      <button class="fbtn" onclick="filterP('cloud',this)">Cloud</button>
+      <button class="fbtn" onclick="filterP('devops',this)">DevOps</button>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+  <div class="pdetail" id="pdetail">
+    <button class="back-btn" onclick="closeDetail()">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to projects
+    </button>
+    <div id="pdetail-content"></div>
+  </div>
+</div>
+
+<!-- ═══ EXPERIENCE ══════════════════════════════════════════════ -->
+<div class="page" id="page-experience">
+  <h2>Experience</h2>
+  <p style="margin-bottom:36px;">Professional history presented as engineering work, not job descriptions.</p>
+  <div class="timeline">
+    <div class="tl-entry"><div class="tl-dot current"></div>
+      <div class="tl-meta"><span class="tl-period">Mar 2026 – Present</span><span class="tl-title">Scrum Master</span></div>
+      <p style="font-size:12px;color:var(--text-3);margin:2px 0 10px;font-family:var(--mono)">The Entrepreneurship Network · Remote</p>
+      <div class="callout success"><div class="callout-title">Promoted within same engagement</div><p>Promoted from AI Intern based on delivery performance and team coordination contributions.</p></div>
+      <ul class="ilist" style="margin-bottom:12px">
+        <li>Led Agile ceremonies across 3-week sprint cycles for a team of ~8 engineers working on AI and automation projects.</li>
+        <li>Removed delivery blockers between AI development and stakeholder expectations — consolidated async status updates to reduce engineer context-switching.</li>
+        <li>Maintained project tracking and documentation enabling new team members to self-onboard without a synchronous handoff.</li>
+        <li>Coordinated communication between technical contributors and non-technical stakeholders on scope, risk, and delivery timelines.</li>
+      </ul>
+      <div class="chips"><span class="chip">Agile</span><span class="chip">Scrum</span><span class="chip">Sprint Planning</span><span class="chip">Technical Documentation</span><span class="chip">Stakeholder Communication</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Nov 2025 – Mar 2026</span><span class="tl-title">AI Intern</span></div>
+      <p style="font-size:12px;color:var(--text-3);margin:2px 0 10px;font-family:var(--mono)">The Entrepreneurship Network · Remote · Star Performer Award</p>
+      <ul class="ilist" style="margin-bottom:12px">
+        <li>Built AI-powered automation workflows for EduTech use cases using LLM APIs and n8n for cross-service integration.</li>
+        <li>Developed FastAPI backend services: endpoint design, request validation, structured response generation, and token-based authentication.</li>
+        <li>Contributed to testing, documentation, and deployment support for AI-enabled applications under active development.</li>
+        <li>Gained practical introduction to event-driven integration patterns through n8n workflow automation.</li>
+      </ul>
+      <div class="chips"><span class="chip">FastAPI</span><span class="chip">LLM APIs</span><span class="chip">n8n</span><span class="chip">Python</span><span class="chip">Docker</span><span class="chip">REST APIs</span></div>
+    </div>
+    <div class="tl-entry"><div class="tl-dot done"></div>
+      <div class="tl-meta"><span class="tl-period">Jan – Mar 2026</span><span class="tl-title">IoT Cloud Engineer Virtual Internship</span></div>
+      <p style="font-size:12px;color:var(--text-3);margin:2px 0 10px;font-family:var(--mono)">EduSkills / AICTE · AWS Skill Builder · Grade O (Outstanding, 90–100)</p>
+      <ul class="ilist">
+        <li>120-hour structured programme covering AWS IoT services, cloud architecture patterns, and edge computing design.</li>
+        <li>Labs on device-to-cloud messaging, data pipelines, and cloud-native monitoring — directly aligned with the Cloud &amp; Edge Computing specialisation.</li>
+      </ul>
+      <div class="chips"><span class="chip">AWS IoT</span><span class="chip">Cloud Architecture</span><span class="chip">Edge Computing</span><span class="chip">AWS Skill Builder</span></div>
+    </div>
+  </div>
+  <hr>
+  <h3 style="margin-bottom:14px">Education</h3>
+  <div class="icard">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+      <div><div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px">B.Tech Computer Science Engineering</div>
+      <div style="font-size:13px;color:var(--text-3)">KL University · Specialisation: Cloud &amp; Edge Computing</div></div>
+      <span class="chip">Expected May 2026</span>
+    </div>
+    <div style="font-size:13px;color:var(--text-2)">Relevant coursework: Data Structures &amp; Algorithms · Database Management Systems · Machine Learning Fundamentals · Cloud Computing · API Development</div>
+  </div>
+</div>
+
+<!-- ═══ GITHUB ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-github">
+  <h2>GitHub</h2>
+  <p style="margin-bottom:24px">Repositories documented with engineering rationale. Each entry records the architecture concepts demonstrated, not just the technology list.</p>
+  <div class="repo-list">
+    <div class="repo-row">
+      <div><div class="repo-name">ai-fake-news-detection</div><div class="repo-desc">LLM-powered credibility analysis with structured API output</div><div class="repo-concepts">Prompt-as-contract design · LLM output schema enforcement · REST API auth · DB-backed request history · Retry logic for inference failures</div></div>
+      <div class="repo-stack">Python · FastAPI<br>LLM APIs · MongoDB<br>Docker</div>
+      <div class="repo-stat"><span class="sbadge active"><span class="sbadge-dot"></span>Active</span></div>
+    </div>
+    <div class="repo-row">
+      <div><div class="repo-name">ai-interview-coach</div><div class="repo-desc">Adaptive interview generation with AI-powered response feedback</div><div class="repo-concepts">Stateless multi-turn via prompt history · Reusable prompt templates · Session context management · Role-specific question generation</div></div>
+      <div class="repo-stack">Python · FastAPI<br>LLM APIs · Docker</div>
+      <div class="repo-stat"><span class="sbadge active"><span class="sbadge-dot"></span>Active</span></div>
+    </div>
+    <div class="repo-row">
+      <div><div class="repo-name">rag-research-assistant</div><div class="repo-desc">Document Q&amp;A using retrieval-augmented generation</div><div class="repo-concepts">RAG pipeline architecture · Chunking strategy · Embedding-based retrieval · Context assembly · Grounded generation vs hallucination</div></div>
+      <div class="repo-stack">Python · FastAPI<br>Vector Search · LLM</div>
+      <div class="repo-stat"><span class="sbadge active"><span class="sbadge-dot"></span>Active</span></div>
+    </div>
+    <div class="repo-row">
+      <div><div class="repo-name">realtime-booking-api</div><div class="repo-desc">Concurrent-safe expert scheduling backend</div><div class="repo-concepts">WebSocket real-time sync · Concurrent booking conflict prevention · Atomic DB operations · Stateless REST design · Auth flow</div></div>
+      <div class="repo-stack">Python · FastAPI<br>Socket.IO · MongoDB</div>
+      <div class="repo-stat"><span class="sbadge active"><span class="sbadge-dot"></span>Active</span></div>
+    </div>
+    <div class="repo-row">
+      <div><div class="repo-name">secure-devops-pipeline</div><div class="repo-desc">CI/CD with security as a blocking deployment gate</div><div class="repo-concepts">DevSecOps · Security gate vs post-deploy audit · Containerisation · Cloud deployment automation · Health check validation</div></div>
+      <div class="repo-stack">Docker · GitHub Actions<br>AWS · Python</div>
+      <div class="repo-stat"><span class="sbadge building"><span class="sbadge-dot"></span>Evolving</span></div>
+    </div>
+    <div class="repo-row">
+      <div><div class="repo-name">aws-event-pipeline</div><div class="repo-desc">Serverless event-driven processing on AWS</div><div class="repo-concepts">Event-driven architecture · Serverless compute model · Infrastructure as Code (Terraform) · Cloud observability · Zero-idle-cost design</div></div>
+      <div class="repo-stack">AWS Lambda · S3<br>CloudWatch · Terraform</div>
+      <div class="repo-stat"><span class="sbadge active"><span class="sbadge-dot"></span>Active</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SKILLS ════════════════════════════════════════════════════ -->
+<div class="page" id="page-skills">
+  <h2>Skills</h2>
+  <p style="margin-bottom:28px">Skill level rated honestly — the legend below defines what each tier means in practice, not aspiration.</p>
+  <div id="skillsEl"></div>
+  <div style="display:flex;gap:20px;margin-top:20px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3)"><div style="width:8px;height:8px;border-radius:50%;background:var(--teal)"></div>Confident — used in shipped projects</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3)"><div style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></div>Working knowledge — building hands-on experience</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-3)"><div style="width:8px;height:8px;border-radius:50%;background:var(--amber)"></div>Learning — currently studying with structured work</div>
+  </div>
+</div>
+
+<!-- ═══ CERTIFICATIONS ════════════════════════════════════════════ -->
+<div class="page" id="page-certs">
+  <h2>Certifications</h2>
+  <p style="margin-bottom:24px">Six verified credentials across cloud architecture, network security, zero-trust, automation, and data analytics — each covering a distinct technical domain.</p>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-issuer">Oracle Cloud</div><div class="cert-name">OCI 2025 Certified Architect Associate</div><div class="cert-desc">Cloud architecture, OCI service design, IAM, networking, storage, and compute on Oracle Cloud Infrastructure.</div></div>
+    <div class="cert-card"><div class="cert-issuer">Aviatrix</div><div class="cert-name">Certified Engineer — Multicloud Network Associate</div><div class="cert-desc">Multi-cloud networking, cloud routing, security domains, and cross-cloud connectivity patterns across AWS, Azure, and GCP.</div></div>
+    <div class="cert-card"><div class="cert-issuer">Zscaler Cyber Academy</div><div class="cert-name">Zero Trust Cyber Associate (ZTCA)</div><div class="cert-desc">Zero Trust architecture, cloud-native security, user-to-app access control without VPN dependency, Zscaler platform.</div></div>
+    <div class="cert-card"><div class="cert-issuer">Automation Anywhere</div><div class="cert-name">RPA Essentials</div><div class="cert-desc">Robotic process automation design, bot development, task automation, and service integration patterns.</div></div>
+    <div class="cert-card"><div class="cert-issuer">Forage · Deloitte</div><div class="cert-name">Data Analytics Job Simulation</div><div class="cert-desc">Practical data analysis workflows, business problem framing, and presenting quantitative findings in a consulting context.</div></div>
+    <div class="cert-card"><div class="cert-issuer">Forage</div><div class="cert-name">Software Engineering Job Simulation</div><div class="cert-desc">Software development lifecycle, code review, and technical problem-solving in a simulated engineering team environment.</div></div>
+  </div>
+</div>
+
+<!-- ═══ LEARNING JOURNEY ══════════════════════════════════════════ -->
+<div class="page" id="page-learning">
+  <h2>Learning Journey</h2>
+  <p style="margin-bottom:24px">Skill levels separated by what I can ship today, what I'm actively building, and what's planned. This framing is more honest and more useful for interviewers than a flat keyword list.</p>
+  <div class="jgrid">
+    <div class="jcol j-confident"><div class="jcol-title">Confident — ships code</div><ul class="jitems">
+      <li>Python</li><li>FastAPI</li><li>REST API design</li><li>LLM APIs &amp; integrations</li>
+      <li>Prompt Engineering</li><li>RAG pipeline construction</li><li>MongoDB / SQLite</li>
+      <li>Docker</li><li>GitHub Actions</li><li>AWS (Lambda, S3, CloudWatch)</li>
+      <li>Linux</li><li>Git</li><li>Agile / Scrum</li>
+    </ul></div>
+    <div class="jcol j-active"><div class="jcol-title">Actively Learning</div><ul class="jitems">
+      <li>Kubernetes (hands-on cluster work)</li><li>Prometheus (metrics + alerting)</li>
+      <li>Grafana (dashboard construction)</li><li>LangGraph (agent orchestration)</li>
+      <li>Agentic AI — multi-step, tool-using LLM workflows</li>
+      <li>Cloud-native system design patterns</li><li>Distributed systems fundamentals</li>
+    </ul></div>
+    <div class="jcol j-next"><div class="jcol-title">Planned — Next 12 Months</div><ul class="jitems">
+      <li>Vector databases (Pinecone, Weaviate, Qdrant)</li><li>MCP — Model Context Protocol</li>
+      <li>MLOps tooling and model lifecycle</li><li>AI Observability (eval frameworks, tracing)</li>
+      <li>Terraform (deeper IaC beyond basics)</li><li>Advanced system design patterns</li>
+    </ul></div>
+  </div>
+  <div class="callout note" style="margin-top:24px">
+    <div class="callout-title">Why the separation matters</div>
+    <p>Conflating working knowledge with expertise makes interviews adversarial and wastes everyone's time. Honest framing makes conversations more productive. This is also what I look for when evaluating engineering culture.</p>
+  </div>
+</div>
+
+<!-- ═══ PHILOSOPHY ════════════════════════════════════════════════ -->
+<div class="page" id="page-philosophy">
+  <h2>Engineering Philosophy</h2>
+  <p style="max-width:640px;margin-bottom:28px">The systems I find interesting are the ones where a wrong assumption early creates a problem that's expensive to fix later. These are the principles I apply to avoid that.</p>
+  <div class="phil-grid">
+    <div class="pcell"><div class="pcell-title">Prompts are API contracts</div><div class="pcell-text">In LLM applications, prompt structure is the most consequential engineering decision. An unspecified output schema means every downstream parser is a bug waiting to happen. I design prompts with the same rigour I'd use for an API interface — specifying types, formats, and failure modes explicitly.</div></div>
+    <div class="pcell"><div class="pcell-title">Security in the pipeline, not after it</div><div class="pcell-text">Vulnerability scanning as a post-deploy audit catches problems after they're already in production. Integrating it as a blocking CI stage catches them before anything ships. The DevSecOps pipeline project is the practical demonstration of this principle, not a theoretical one.</div></div>
+    <div class="pcell"><div class="pcell-title">Schema design is architecture</div><div class="pcell-text">The booking system taught me this concretely. Database schema decisions made early — how to model slot availability, how to structure the bookings collection — determined whether real-time synchronisation was even possible later. Data model choices are architectural choices.</div></div>
+    <div class="pcell"><div class="pcell-title">Build for the next reader</div><div class="pcell-text">Documentation and naming aren't ceremony — they're the mechanism by which you hand work off without a synchronous meeting. Clear code is faster code, because onboarding costs time that didn't have to be spent.</div></div>
+    <div class="pcell"><div class="pcell-title">Automate the repetitive, think on the novel</div><div class="pcell-text">Anything that runs the same way every time should be scripted. CI/CD, testing, environment setup — automating the repeatable parts creates capacity to focus on the problems that actually require judgement.</div></div>
+    <div class="pcell"><div class="pcell-title">Know what you don't know</div><div class="pcell-text">The learning journey section of this platform is deliberately honest. Conflating familiarity with expertise is a failure mode I work to avoid — both when representing my own skills and when scoping technical work. Honest self-assessment makes collaboration faster for everyone involved.</div></div>
+  </div>
+</div>
+
+<!-- ═══ ENGINEERING GUIDE ══════════════════════════════════════════ -->
+<div class="page" id="page-guide">
+  <h2>Engineering Guide</h2>
+  <p style="margin-bottom:20px">An AI assistant built on this portfolio. Ask about projects, architecture decisions, skills, certifications, or career direction. Switch modes for different audiences.</p>
+  <div class="guide-wrap">
+    <div class="guide-hdr">
+      <div class="guide-av">G</div>
+      <div><div class="guide-ttl">Engineering Guide</div><div class="guide-sub">Portfolio-grounded · Powered by Claude</div></div>
+      <div class="mode-pills">
+        <button class="mpill active" onclick="setMode('general',this)">General</button>
+        <button class="mpill" onclick="setMode('recruiter',this)">Recruiter</button>
+        <button class="mpill" onclick="setMode('technical',this)">Technical</button>
+        <button class="mpill" onclick="setMode('manager',this)">EM Mode</button>
+      </div>
+    </div>
+    <div class="guide-msgs" id="gmsgs">
+      <div class="gmsg assistant">
+        <div class="mav">G</div>
+        <div class="mbubble">
+          <p>Hi — I'm the Engineering Guide for Durga Dhanush Yaragani's portfolio. I can answer questions about any project, architecture decision, technology choice, skill level, certification, or career direction.</p>
+          <p>Try asking about a specific project, a design trade-off, or what role he's targeting. Switch to Recruiter or Technical mode above for a tailored response style.</p>
+        </div>
+      </div>
+    </div>
+    <div class="guide-sugg" id="gsugg">
+      <button class="sug-chip" onclick="useSug(this)">How does the RAG system work?</button>
+      <button class="sug-chip" onclick="useSug(this)">Why FastAPI over Flask?</button>
+      <button class="sug-chip" onclick="useSug(this)">Explain the DevSecOps pipeline</button>
+      <button class="sug-chip" onclick="useSug(this)">Recruiter summary</button>
+    </div>
+    <div class="guide-input-row">
+      <input class="ginput" id="ginput" placeholder="Ask about any project, skill, or architecture decision..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button class="gsend" onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <h2>Contact</h2>
+  <p style="margin-bottom:8px;max-width:500px">B.Tech graduate (May 2026) open to AI Engineering, Backend, Cloud, and Platform Engineering roles. Available for full-time positions, graduate programmes, and research positions.</p>
+  <div class="callout success" style="margin:18px 0 28px">
+    <div class="callout-title">Status</div>
+    <p>Actively interviewing · Available from May 2026 · Open to remote, hybrid, and on-site in India and internationally</p>
+  </div>
+  <div class="contact-grid">
+    <a class="citem" href="mailto:ydurgadhanush@gmail.com">
+      <svg width="18" height="18" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      <div><div class="citem-lbl">Email</div><div class="citem-val">ydurgadhanush@gmail.com</div></div>
+    </a>
+    <a class="citem" href="tel:+919490354585">
+      <svg width="18" height="18" fill="none" stroke="var(--text-3)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 10.8a19.79 19.79 0 0 1-3.07-8.66A2 2 0 0 1 2 0h3a2 2 0 0 1 2 1.72c.127 1.01.36 2.003.7 2.96a2 2 0 0 1-.45 2.11L6.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.957.339 1.95.574 2.96.7A2 2 0 0 1 22 14.92z"/></svg>
+      <div><div class="citem-lbl">Phone</div><div class="citem-val">+91 9490354585</div></div>
+    </a>
+    <a class="citem" href="https://github.com/yddhanush" target="_blank" rel="noopener">
+      <svg width="18" height="18" fill="var(--text-3)" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      <div><div class="citem-lbl">GitHub</div><div class="citem-val">github.com/yddhanush</div></div>
+    </a>
+    <a class="citem" href="https://linkedin.com/in/durgadhanush" target="_blank" rel="noopener">
+      <svg width="18" height="18" fill="var(--text-3)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <div><div class="citem-lbl">LinkedIn</div><div class="citem-val">linkedin.com/in/durgadhanush</div></div>
+    </a>
+  </div>
+</div>
+
+    </div><!-- /content-area -->
+  </main>
+</div><!-- /layout -->
+<script>
+// ── DATA ──────────────────────────────────────────────────────
+const PROJECTS=[
+  {id:'p1',tags:['ai','backend'],name:'AI-Powered Fake News Detection System',desc:'LLM reasoning pipeline producing credibility scores, structured evidence summaries, and plain-language explanations through a REST API.',focus:'AI · LLM Workflow',fc:'f-ai',
+   stack:['Python','FastAPI','LLM APIs','Prompt Engineering','MongoDB','Docker'],
+   d:{summary:'Most misinformation detectors return a binary verdict with no explanation. This system uses an LLM reasoning pipeline that makes the AI\'s reasoning transparent — not just its output. The key engineering insight: treat prompt structure as an API contract.',
+      problem:'Binary labels are not actionable. Users need to understand *why* something is credible. Traditional classifiers also become stale as misinformation tactics evolve faster than training data can capture.',
+      arch:`<span class="ac4">  Request Flow</span>\n\n<span class="ac3">POST /analyze</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">FastAPI Layer</span>          <span class="ac4">← auth, schema validation</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Preprocessor</span>           <span class="ac4">← normalise text, manage length</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Prompt Constructor</span>     <span class="ac4">← structured prompt + output schema</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">LLM Inference</span>          <span class="ac4">← credibility reasoning + evidence</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Response Parser</span>        <span class="ac4">← JSON extraction, schema enforcement</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">DB Write + Response</span>    <span class="ac4">← stored, structured JSON returned</span>`,
+      dec:'Enforcing a strict output schema *inside* the prompt fixed the consistency problem. Without it, LLM responses vary in format across calls — making every downstream parser brittle. Prompt design treated as API contract design.',
+      dec2:'MongoDB over SQL: analysis results have variable structure (different articles produce different evidence structures). Flexible document storage avoided constant schema migrations for output variability.',
+      challenges:['Consistent parseable JSON from the LLM required prompt iteration and fallback parsing — not just instruction-following.','Mid-inference API failures needed retry logic and graceful degradation.','Response quality varied by article length — chunking strategy required for longer content.'],
+      testing:'Manual testing against known credible and non-credible articles. Postman API endpoint testing. Edge cases: empty input, oversized content, special characters. Error path testing for LLM timeout and malformed response scenarios.',
+      lessons:'Prompt versions need tracking as carefully as code versions. I now treat prompt changes as commits with rationale, not edits.',
+      future:'Multi-source verification · Confidence visualisation · Citation support · User feedback loop · Analytics dashboard'}},
+  {id:'p2',tags:['ai','backend'],name:'AI Interview Coach',desc:'Adaptive platform generating role-specific interview questions with LLM-powered feedback on user responses — stateless, multi-turn design.',focus:'Adaptive AI Workflow',fc:'f-arch',
+   stack:['Python','FastAPI','LLM APIs','Prompt Engineering','Docker'],
+   d:{summary:'Static question banks don\'t adapt to what a candidate says. This system generates role-specific questions and evaluates actual user responses with LLM inference — not a generic checklist. The design challenge: reusable prompt templates across technical and behavioural formats without forking the codebase.',
+      problem:'Traditional tools can\'t evaluate a specific answer against a specific question with contextual feedback. Real-time adaptive feedback requires stateless multi-turn design that scales horizontally.',
+      arch:`<span class="ac4">  Session Flow</span>\n\n<span class="ac3">POST /session/start</span>   <span class="ac4">← interview type + target role</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Question Generator</span>    <span class="ac4">← LLM + role-specific template</span>\n<span class="ac2">  ↓</span>\n<span class="ac3">POST /answer</span>          <span class="ac4">← response + session context in body</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Evaluation Engine</span>     <span class="ac4">← LLM scores answer vs question + role</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Feedback Formatter</span>    <span class="ac4">← structured: strengths, gaps, suggestions</span>\n<span class="ac2">  ↓</span>\n<span class="ac3">200 {feedback, score}</span>`,
+      dec:'Stateless API design: passing conversation history in each request body rather than server-side sessions means any instance handles any request. No sticky sessions, easier horizontal scaling, simpler local testing.',
+      dec2:'One codebase for both interview types via a mode parameter. Shared prompt templates with type-specific injections — improvements to evaluation quality benefit both modes simultaneously.',
+      challenges:['Reusable templates performing well across very different interview types required systematic comparison of prompt structures.','Session context encoding: fitting enough prior conversation into each call without exceeding token limits.'],
+      testing:'Prompt evaluation: compared output quality across versions for identical question/answer pairs. Postman endpoint testing. Edge cases: very short answers, off-topic responses.',
+      lessons:'Stateless conversation design is the right default for this class of application. Context-in-request is simpler to reason about, test, and scale than server-managed session state.',
+      future:'Voice-based interviews · Resume-aware question generation · Coding interview with sandboxed execution · Performance analytics'}},
+  {id:'p3',tags:['ai','backend'],name:'RAG-Based Research Assistant',desc:'Document Q&A using retrieval-augmented generation — answers grounded in uploaded documents, not model memory.',focus:'Retrieval · Context Engineering',fc:'f-ai',
+   stack:['Python','FastAPI','RAG','Vector Search','LLM APIs'],
+   d:{summary:'LLMs hallucinate on documents they haven\'t seen. This system builds a retrieval layer between the user\'s question and the LLM — only the most relevant document chunks are passed to the model at inference time.',
+      problem:'Full-document context exceeds limits for long documents and is expensive. Open-ended generation without grounding produces hallucinations. Retrieval narrows context to what\'s relevant before generating.',
+      arch:`<span class="ac4">  Ingestion</span>\n<span class="ac3">Document Upload</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Text Extraction + Chunking</span>   <span class="ac4">← sentence-aware, overlap control</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Embedding + Vector Index</span>     <span class="ac4">← persisted for retrieval</span>\n\n<span class="ac4">  Query</span>\n<span class="ac3">POST /ask {question}</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Query Embed + Similarity Search</span>  <span class="ac4">← top-k chunks</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Prompt Assembly</span>       <span class="ac4">← question + retrieved context</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">LLM Answer Generation</span> <span class="ac4">← grounded in document content</span>\n<span class="ac2">  ↓</span>\n<span class="ac3">200 {answer, source_chunks}</span>`,
+      dec:'RAG over fine-tuning: fine-tuning is expensive, requires retraining for each new corpus, and still hallucinates outside training distribution. RAG works with any new document without retraining, and retrieved chunks provide an explicit audit trail.',
+      dec2:'Chunking strategy is the most consequential implementation decision. Chunk size and overlap directly affect retrieval quality — too small loses context, too large dilutes relevance. Required iteration across document types.',
+      challenges:['Parsing varied file formats while preserving semantic structure.','Tuning chunk size and overlap for different document types took significant experimentation.','Prompt construction using retrieved context without exceeding token budgets.'],
+      testing:'Retrieval quality: compared retrieved chunks against manually identified relevant sections for test questions. Answer quality on documents with known ground truth. Edge cases: ambiguous queries, no matching content, very long documents.',
+      lessons:'The chunking decision matters more than the LLM choice. Poor chunking produces poor retrieval regardless of model quality.',
+      future:'Multi-document support · Source citation · Better retrieval ranking · Enterprise document management'}},
+  {id:'p4',tags:['backend'],name:'Real-Time Expert Booking System',desc:'Concurrent-safe scheduling backend — prevents double-booking under load via atomic DB operations and WebSocket availability sync.',focus:'Backend Architecture',fc:'f-backend',
+   stack:['Python','FastAPI','Socket.IO','MongoDB'],
+   d:{summary:'Booking systems fail silently when two users try to reserve the same slot simultaneously. This project focused on the concurrency problem: keeping availability state consistent across concurrent requests through real-time synchronisation.',
+      problem:'Multiple users can query the same expert simultaneously. Without synchronisation, both can see a slot as available and book it — a double-booking conflict. The challenge: prevent this at the DB level while notifying all connected clients of state changes immediately.',
+      arch:`<span class="ac4">  Concurrent Request Handling</span>\n\n<span class="ac3">Client A + Client B</span>     <span class="ac4">← both query availability</span>\n<span class="ac2">  ↓</span>\n<span class="ac3">GET /experts/:id/availability</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">FastAPI → MongoDB</span>       <span class="ac4">← read open slots</span>\n<span class="ac2">  ↓</span>\n<span class="ac3">Client A: POST /bookings</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Atomic findOneAndUpdate</span>  <span class="ac4">← find + reserve in single transaction</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Socket.IO broadcast</span>      <span class="ac4">← push updated state to ALL clients</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Client B sees slot gone</span>  <span class="ac4">← without polling or refreshing</span>`,
+      dec:'Socket.IO over polling: polling introduces latency (stale views between intervals) and server load proportional to connected clients. Push means clients see changes instantly, and the server only sends data when state actually changes.',
+      dec2:'MongoDB\'s atomic findOneAndUpdate allowed slot reservation and status update in one operation without explicit locking — sufficient for this concurrency pattern.',
+      challenges:['Ensuring all connected clients see the same availability state without race conditions.','Database consistency under concurrent booking requests.','Clean API contract separation between availability queries and booking operations.'],
+      testing:'Concurrent booking simulation: simultaneous requests for the same slot to verify atomic operations prevented double-booking. WebSocket propagation testing. Auth flow testing. Postman API contract testing.',
+      lessons:'Schema design is architecture. How I modelled slot availability in MongoDB determined whether atomic booking was even possible. Data model decisions made early have long consequences.',
+      future:'Payment integration · Video consultation · Calendar sync · Analytics dashboard'}},
+  {id:'p5',tags:['devops','cloud'],name:'Cloud-Based Secure DevOps Pipeline',desc:'CI/CD with vulnerability scanning as a blocking deployment gate — critical findings stop the pipeline, not just trigger an alert.',focus:'DevSecOps · CI/CD',fc:'f-devops',
+   stack:['Docker','GitHub Actions','AWS','Python','Linux'],
+   d:{summary:'Manual deployment is slow and skips security checks under pressure. This pipeline automates build, test, containerisation, security scanning, and cloud deployment — with security integrated as a delivery gate, not a post-deploy audit.',
+      problem:'Traditional CI/CD treats security as an afterthought. Scan results arrive after code is already deployed, creating a window where vulnerable code is in production while the team responds to alerts. DevSecOps closes that window.',
+      arch:`<span class="ac4">  Pipeline Stages (GitHub Actions)</span>\n\n<span class="ac3">git push → trigger</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Static Analysis</span>         <span class="ac4">← code quality, dependency audit</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Unit Test Suite</span>         <span class="ac4">← fail fast on regressions</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Docker Build</span>            <span class="ac4">← reproducible container image</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Vulnerability Scan</span>      <span class="ac4">← BLOCKING: critical findings halt deploy</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Registry Push</span>           <span class="ac4">← versioned, tagged image</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">AWS Deployment</span>          <span class="ac4">← target environment</span>\n<span class="ac2">  ↓</span>\n<span class="ac1">Health Check</span>            <span class="ac4">← confirms live before marking success</span>`,
+      dec:'Scanning is a *blocking* stage, not informational. An informational scan relies on a human to read and act on alerts under pressure. A blocking stage removes that decision point — nothing ships with a critical finding.',
+      dec2:'GitHub Actions over Jenkins: zero infrastructure overhead at this scale, native GitHub integration for PR-level feedback, marketplace ecosystem for security scanning tools.',
+      challenges:['Tuning severity thresholds to block on critical/high findings without creating alert fatigue from low-severity noise.','Health check design: defining what "healthy" means for the deployed service and timeout before declaring failure.'],
+      testing:'End-to-end pipeline tested against code with known vulnerabilities to confirm blocking behaviour. Health check tested with healthy and degraded service states.',
+      lessons:'DevSecOps is a culture change before it\'s a tooling change. The pipeline only works if the team treats a blocking security stage as a feature, not friction.',
+      future:'Kubernetes deployment target · Terraform IaC · Prometheus + Grafana · Automated rollback · SBOM generation'}},
+  {id:'p6',tags:['cloud'],name:'AWS Event-Driven Pipeline',desc:'Serverless event processing — compute runs only when events occur, infrastructure provisioned as code via Terraform.',focus:'Serverless · Cloud Architecture',fc:'f-cloud',
+   stack:['AWS Lambda','S3','CloudWatch','Terraform','Python'],
+   d:{summary:'When applications need to respond to file uploads or scheduled events, keeping a server running to wait is wasteful. This pipeline implements serverless event-driven processing where compute only runs when there\'s work to do.',
+      problem:'Server-based processing pays for compute during idle periods — which for event-driven workloads can be most of the time. Serverless removes idle cost and scales automatically. The engineering challenge: designing for stateless function execution.',
+      arch:`<span class="ac4">  Event Sources → Processing → Storage</span>\n\n<span class="ac3">S3 Object Upload</span>       ──┐\n<span class="ac3">CloudWatch Schedule</span>     ──┤\n<span class="ac3">Manual Trigger</span>          ──┘\n                           <span class="ac2">↓</span>\n                    <span class="ac1">AWS Lambda</span>        <span class="ac4">← Python handler, stateless</span>\n                           <span class="ac2">↓</span>\n                    <span class="ac1">Event Processing</span>  <span class="ac4">← business logic per event type</span>\n                           <span class="ac2">↓</span>\n     <span class="ac3">S3 Output</span>   <span class="ac3">CloudWatch Logs</span>   <span class="ac3">Downstream</span>\n\n<span class="ac4">  Infrastructure (Terraform)</span>\n  Lambda · S3 · IAM · CloudWatch → provisioned declaratively`,
+      dec:'Terraform for IaC: the deployment environment is version-controlled, reproducible, and auditable. Manual console configuration creates undocumented drift between environments.',
+      dec2:'Event-driven over polling loop: a polling loop pays for compute proportional to poll frequency regardless of event volume. Event-driven scales to zero when idle and handles burst traffic without pre-provisioning.',
+      challenges:['Lambda cold start latency for infrequently invoked functions — acceptable here, would need provisioned concurrency for latency-sensitive cases.','Stateless execution required careful state management through S3 and CloudWatch rather than in-memory.'],
+      testing:'Integration testing with real S3 upload events. CloudWatch log validation. Error case testing: malformed events, processing failures. Infrastructure reviewed via Terraform plan before apply.',
+      lessons:'Infrastructure as Code is non-negotiable for cloud work. Destroying and recreating the entire pipeline from Terraform state in under 5 minutes made the value immediately obvious.',
+      future:'Multi-region deployment · Dead letter queues for retry · Monitoring dashboards · Advanced alerting · Step Functions orchestration'}}
+];
+
+const SKILLS=[
+  {group:'Programming',items:[{n:'Python',l:90,t:'confident'},{n:'SQL',l:75,t:'confident'},{n:'Bash',l:65,t:'confident'},{n:'JavaScript (basic)',l:35,t:'working'}]},
+  {group:'AI & Machine Learning',items:[{n:'Large Language Models',l:85,t:'confident'},{n:'Prompt Engineering',l:88,t:'confident'},{n:'Retrieval-Augmented Generation',l:82,t:'confident'},{n:'AI Workflow Automation',l:78,t:'confident'},{n:'Vector Search',l:70,t:'confident'},{n:'NLP Fundamentals',l:60,t:'confident'},{n:'ML Fundamentals',l:52,t:'working'}]},
+  {group:'Backend Engineering',items:[{n:'FastAPI',l:85,t:'confident'},{n:'REST API Design',l:82,t:'confident'},{n:'Authentication',l:70,t:'confident'},{n:'Socket.IO',l:65,t:'confident'},{n:'Flask',l:42,t:'working'}]},
+  {group:'Cloud & DevOps',items:[{n:'AWS (Lambda, S3, CloudWatch)',l:72,t:'confident'},{n:'Docker',l:78,t:'confident'},{n:'GitHub Actions',l:75,t:'confident'},{n:'Linux',l:70,t:'confident'},{n:'Terraform',l:45,t:'working'},{n:'Kubernetes',l:36,t:'working'},{n:'Prometheus',l:28,t:'learning'},{n:'Grafana',l:28,t:'learning'}]},
+  {group:'Data & Tooling',items:[{n:'MongoDB',l:75,t:'confident'},{n:'SQLite',l:70,t:'confident'},{n:'Git / GitHub',l:85,t:'confident'},{n:'Postman',l:78,t:'confident'},{n:'n8n (workflow automation)',l:65,t:'confident'},{n:'Tableau',l:38,t:'working'}]}
+];
+
+const PAL_ITEMS=[
+  {l:'Home',p:'home',t:'page'},{l:'Engineering Timeline',p:'timeline',t:'page'},
+  {l:'Projects',p:'projects',t:'page'},{l:'Experience',p:'experience',t:'page'},
+  {l:'GitHub',p:'github',t:'page'},{l:'Skills',p:'skills',t:'page'},
+  {l:'Certifications',p:'certs',t:'page'},{l:'Learning Journey',p:'learning',t:'page'},
+  {l:'Engineering Philosophy',p:'philosophy',t:'page'},{l:'Engineering Guide',p:'guide',t:'page'},
+  {l:'Contact',p:'contact',t:'page'},
+  {l:'AI Fake News Detection',p:'projects',t:'project'},{l:'AI Interview Coach',p:'projects',t:'project'},
+  {l:'RAG Research Assistant',p:'projects',t:'project'},{l:'Real-Time Booking System',p:'projects',t:'project'},
+  {l:'DevSecOps Pipeline',p:'projects',t:'project'},{l:'AWS Event Pipeline',p:'projects',t:'project'},
+  {l:'Python',p:'skills',t:'skill'},{l:'FastAPI',p:'skills',t:'skill'},
+  {l:'RAG',p:'skills',t:'skill'},{l:'AWS',p:'skills',t:'skill'},{l:'Docker',p:'skills',t:'skill'}
+];
+
+// ── GUIDE ─────────────────────────────────────────────────────
+const SYS=`You are the Engineering Guide for Durga Dhanush Yaragani's portfolio. Answer questions about his work, skills, projects, certifications, and career. Be specific, honest, and technical. Never hallucinate skills or achievements not listed.
+
+FACTS: B.Tech CSE Cloud & Edge Computing, KL University, graduating May 2026. Email: ydurgadhanush@gmail.com. Phone: +91 9490354585. AI Intern Nov 2025→Scrum Master Mar 2026 at The Entrepreneurship Network. Star Performer award. IoT Cloud Internship AICTE/EduSkills Grade O (Outstanding).
+
+PROJECTS: AI Fake News Detection (FastAPI, LLM, MongoDB — prompt-as-contract design), AI Interview Coach (stateless multi-turn, reusable prompt templates), RAG Research Assistant (retrieval pipeline, vector search, grounded generation), Real-Time Booking (Socket.IO, atomic MongoDB, concurrency), DevSecOps Pipeline (Docker, GitHub Actions, AWS — security as blocking gate), AWS Event Pipeline (Lambda, S3, CloudWatch, Terraform — IaC).
+
+CERTIFICATIONS: Oracle OCI Architect Associate, Aviatrix Multicloud Network Associate, Zscaler ZTCA, Automation Anywhere RPA Essentials, Deloitte Data Analytics (Forage), Software Engineering (Forage).
+
+CONFIDENT SKILLS: Python, FastAPI, REST APIs, LLMs, Prompt Engineering, RAG, MongoDB, Docker, GitHub Actions, AWS, Git, Agile/Scrum. WORKING: Kubernetes, Terraform, Flask, JavaScript. LEARNING: Prometheus, Grafana, LangGraph, Agentic AI.
+
+PHILOSOPHY: Prompts as API contracts, security in pipeline not after, schema design is architecture, stateless API design, IaC, honest skill representation.`;
+
+const MODE_HINTS={
+  general:['How does the RAG system work?','Why FastAPI over Flask?','Explain the DevSecOps pipeline','Recruiter summary'],
+  recruiter:['What roles is Durga available for?','Key achievements?','Graduation date?','Contact info'],
+  technical:['Explain the RAG chunking strategy','Why stateless booking API?','How is concurrency handled?','Testing approach?'],
+  manager:['Leadership experience?','How did the promotion happen?','Team coordination approach?','Delivery track record?']
+};
+
+let gMode='general', gHistory=[], palSel=-1, palFiltered=[...PAL_ITEMS];
+
+// ── INIT ──────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded',()=>{
+  renderProjects(PROJECTS); renderSkills();
+  const saved=localStorage.getItem('theme');
+  if(saved) applyTheme(saved);
+  window.addEventListener('scroll',()=>{
+    const d=document.documentElement;
+    document.getElementById('rbar').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+  });
+  document.addEventListener('keydown',e=>{
+    if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openPal();}
+    if(e.key==='Escape'){closePal();closeDetail();}
+  });
+});
+
+// ── NAV ───────────────────────────────────────────────────────
+function nav(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);
+  if(pg) pg.classList.add('active');
+  const nb=document.querySelector('[data-p="'+id+'"]');
+  if(nb) nb.classList.add('active');
+  document.getElementById('bc').textContent=id.replace(/-/g,' ');
+  document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+// ── THEME ─────────────────────────────────────────────────────
+function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');applyTheme(c==='dark'?'light':'dark');}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('theme',t);
+  document.getElementById('themeLbl').textContent=t==='dark'?'Dark':'Light';
+  const ico=document.getElementById('themeIco');
+  ico.innerHTML=t==='dark'?'<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>':'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+}
+
+// ── PALETTE ───────────────────────────────────────────────────
+function openPal(){
+  document.getElementById('cmdPal').classList.add('open');
+  document.getElementById('palInput').value='';
+  renderPal('');
+  setTimeout(()=>document.getElementById('palInput').focus(),50);
+  palSel=-1;
+}
+function closePal(){document.getElementById('cmdPal').classList.remove('open');}
+document.getElementById('palInput').addEventListener('input',e=>{renderPal(e.target.value);palSel=-1;});
+function renderPal(q){
+  const lo=q.toLowerCase();
+  palFiltered=PAL_ITEMS.filter(i=>!q||i.l.toLowerCase().includes(lo)||i.t.includes(lo));
+  document.getElementById('palResults').innerHTML=palFiltered.slice(0,8).map((item,i)=>
+    `<div class="pal-item" onclick="palGo(${i})"><span>${item.l}</span><span class="pal-type">${item.t}</span></div>`
+  ).join('');
+}
+function palGo(idx){
+  const item=palFiltered[idx];if(!item)return;
+  closePal();nav(item.p);
+  if(item.t==='project'){
+    const words=item.l.toLowerCase().split(' ');
+    const proj=PROJECTS.find(p=>words.some(w=>p.name.toLowerCase().includes(w)&&w.length>3));
+    if(proj)setTimeout(()=>openDetail(proj.id),150);
+  }
+}
+document.getElementById('palInput').addEventListener('keydown',e=>{
+  const items=document.querySelectorAll('.pal-item');
+  if(e.key==='ArrowDown'){e.preventDefault();palSel=Math.min(palSel+1,items.length-1);hlPal(items);}
+  else if(e.key==='ArrowUp'){e.preventDefault();palSel=Math.max(palSel-1,0);hlPal(items);}
+  else if(e.key==='Enter'){e.preventDefault();palGo(palSel>=0?palSel:0);}
+  else if(e.key==='Escape')closePal();
+});
+function hlPal(items){items.forEach((el,i)=>el.classList.toggle('sel',i===palSel));if(items[palSel])items[palSel].scrollIntoView({block:'nearest'});}
+document.getElementById('cmdPal').addEventListener('click',e=>{if(e.target===document.getElementById('cmdPal'))closePal();});
+
+// ── PROJECTS ──────────────────────────────────────────────────
+function renderProjects(list){
+  document.getElementById('pgrid').innerHTML=list.map(p=>`
+    <div class="prow" onclick="openDetail('${p.id}')">
+      <div>
+        <div class="prow-name">${p.name}</div>
+        <div class="prow-desc">${p.desc}</div>
+        <div class="prow-meta">
+          <span class="pfocus ${p.fc}">${p.focus}</span>
+          ${p.stack.slice(0,3).map(s=>`<span class="chip">${s}</span>`).join('')}
+        </div>
+      </div>
+      <div class="parrow">→</div>
+    </div>`).join('');
+}
+function filterP(tag,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProjects(tag==='all'?PROJECTS:PROJECTS.filter(p=>p.tags.includes(tag)));
+}
+function openDetail(id){
+  const p=PROJECTS.find(x=>x.id===id);if(!p)return;
+  document.getElementById('plist').style.display='none';
+  const det=document.getElementById('pdetail');
+  det.classList.add('open');
+  const d=p.d;
+  document.getElementById('pdetail-content').innerHTML=`
+    <p style="font-size:11px;font-family:var(--mono);color:var(--text-3);margin-bottom:6px">Project Case Study</p>
+    <h1 style="font-size:26px;margin-bottom:10px">${p.name}</h1>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <span class="pfocus ${p.fc}">${p.focus}</span>
+      ${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}
+    </div>
+    <p style="font-size:15px;color:var(--text-2);line-height:1.75;max-width:680px;margin-bottom:28px">${d.summary}</p>
+    <hr>
+    <h3 style="margin-bottom:8px">Problem Statement</h3>
+    <p>${d.problem}</p>
+    <hr>
+    <h3 style="margin-bottom:8px">System Architecture</h3>
+    <div class="cblock"><div class="cblock-hdr"><span class="cblock-lbl">Architecture Diagram</span><span class="cblock-lang">ASCII</span></div><pre>${d.arch}</pre></div>
+    <hr>
+    <h3 style="margin-bottom:8px">Design Decisions</h3>
+    <div class="callout info"><div class="callout-title">Why this design?</div><p>${d.dec}</p></div>
+    ${d.dec2?`<div class="callout note"><div class="callout-title">Trade-off considered</div><p>${d.dec2}</p></div>`:''}
+    <hr>
+    <h3 style="margin-bottom:8px">Engineering Challenges</h3>
+    <ul class="ilist">${d.challenges.map(c=>`<li>${c}</li>`).join('')}</ul>
+    <hr>
+    <h3 style="margin-bottom:8px">Testing Strategy</h3>
+    <p>${d.testing}</p>
+    <hr>
+    <h3 style="margin-bottom:8px">Lessons Learned</h3>
+    <div class="callout warning"><div class="callout-title">What I'd change</div><p>${d.lessons}</p></div>
+    <hr>
+    <h3 style="margin-bottom:10px">Technology Stack</h3>
+    <div class="tpills">${p.stack.map(s=>`<span class="tpill hl">${s}</span>`).join('')}</div>
+    <hr>
+    <h3 style="margin-bottom:8px">Future Roadmap</h3>
+    <p style="font-size:13px;color:var(--text-2)">${d.future}</p>
+    <div style="margin-top:24px;padding:14px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--rl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span style="font-size:13px;color:var(--text-3)">Source code on GitHub</span>
+      <a href="https://github.com/yddhanush" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--accent);padding:6px 12px;border:1px solid var(--accent-border);border-radius:var(--r);background:var(--accent-bg)">View Repository →</a>
+    </div>`;
+  window.scrollTo(0,0);
+}
+function closeDetail(){
+  document.getElementById('plist').style.display='block';
+  document.getElementById('pdetail').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+// ── SKILLS ────────────────────────────────────────────────────
+function renderSkills(){
+  document.getElementById('skillsEl').innerHTML=SKILLS.map(g=>`
+    <div class="sg-block">
+      <div class="sg-title">${g.group}</div>
+      ${g.items.map(s=>`
+        <div class="skill-row">
+          <span class="skill-name">${s.n}</span>
+          <div class="skill-track"><div class="skill-fill b-${s.t}" style="width:${s.l}%"></div></div>
+          <span class="skill-lbl">${s.t==='confident'?'Confident':s.t==='working'?'Working':'Learning'}</span>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+// ── GUIDE ─────────────────────────────────────────────────────
+function setMode(m,btn){
+  gMode=m;
+  document.querySelectorAll('.mpill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('gsugg').innerHTML=(MODE_HINTS[m]||MODE_HINTS.general).map(s=>
+    `<button class="sug-chip" onclick="useSug(this)">${s}</button>`).join('');
+}
+function useSug(btn){document.getElementById('ginput').value=btn.textContent;sendMsg();}
+async function sendMsg(){
+  const inp=document.getElementById('ginput');
+  const txt=inp.value.trim();if(!txt)return;
+  inp.value='';
+  addMsg('user',txt);
+  gHistory.push({role:'user',content:txt});
+  const tid='t'+Date.now();
+  const msgs=document.getElementById('gmsgs');
+  msgs.innerHTML+=`<div class="gmsg assistant" id="${tid}"><div class="mav">G</div><div class="mbubble"><div class="typing-dots"><span></span><span></span><span></span></div></div></div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+  const modeNote={recruiter:'\n\nRespond for a recruiter: focus on role fit, achievements, availability. Be concise.',technical:'\n\nRespond for a technical interviewer: go deep on implementation, trade-offs, architecture.',manager:'\n\nRespond for an engineering manager: emphasise delivery, leadership, team impact.',general:''};
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS+(modeNote[gMode]||''),messages:gHistory})
+    });
+    const data=await res.json();
+    const reply=data.content?.find(b=>b.type==='text')?.text||'Unable to generate a response.';
+    gHistory.push({role:'assistant',content:reply});
+    document.getElementById(tid)?.remove();
+    addMsg('assistant',reply);
+  }catch(e){
+    document.getElementById(tid)?.remove();
+    addMsg('assistant','Unable to connect. Please check your network and try again.');
+  }
+}
+function addMsg(role,text){
+  const msgs=document.getElementById('gmsgs');
+  const fmt=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  msgs.innerHTML+=`<div class="gmsg ${role}"><div class="mav">${role==='assistant'?'G':'U'}</div><div class="mbubble">${fmt}</div></div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
