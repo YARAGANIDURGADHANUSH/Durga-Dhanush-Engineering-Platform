@@ -105,6 +105,8 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 .tl-dot.done{background:var(--accent);border-color:var(--accent)}
 .tl-dot.cur{background:var(--teal);border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-bg)}
 .tl-dot.nxt{border-style:dashed}
+.tl-tit-link{cursor:pointer;transition:color var(--tx)}
+.tl-tit-link:hover{color:var(--accent)}
 .tl-meta{display:flex;align-items:baseline;gap:8px;margin-bottom:3px;flex-wrap:wrap}
 .tl-per{font-size:11px;font-family:var(--mono);color:var(--text-3)}
 .tl-tit{font-size:14px;font-weight:600;color:var(--text)}
@@ -351,7 +353,7 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
         <svg class="ni" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Skills
       </button>
       <button class="nav-item" onclick="nav('certs')" data-p="certs">
-        <svg class="ni" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Certifications<span class="nbadge">7</span>
+        <svg class="ni" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Certifications<span class="nbadge">6</span>
       </button>
       <button class="nav-item" onclick="nav('learning')" data-p="learning">
         <svg class="ni" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Learning Journey
@@ -377,10 +379,10 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
         <svg id="thIco" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <span id="thLbl" style="font-size:12px">Light</span>
       </button>
-      <a class="sb-link" href="https://github.com/YARAGANIDURGADHANUSH" target="_blank" title="GitHub">
+      <a class="sb-link" href="https://github.com/YARAGANIDURGADHANUSH" target="_blank" rel="noopener noreferrer" title="GitHub">
         <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
-      <a class="sb-link" href="https://www.linkedin.com/in/yaragani-durga-dhanush-16300a38b" target="_blank" title="LinkedIn">
+      <a class="sb-link" href="https://www.linkedin.com/in/yaragani-durga-dhanush-16300a38b" target="_blank" rel="noopener noreferrer" title="LinkedIn">
         <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
     </div>
@@ -573,60 +575,26 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 
 <!-- EXPERIENCE -->
 <div class="page" id="page-experience">
-  <h2>Experience</h2>
-  <p style="margin-bottom:28px">Engineering work, not job descriptions.</p>
-  <div class="tl">
-    <div class="tle"><div class="tl-dot done"></div>
-      <div class="tl-meta"><span class="tl-per">May – Jun 2026</span><span class="tl-tit">AI &amp; ML with Python Internship</span></div>
-      <p style="font-size:12px;color:var(--text-3);margin:2px 0 8px;font-family:var(--mono)">Venura · Remote · Certificate ID: VEN/INC/AI/26/087</p>
-      <ul class="il" style="margin-bottom:10px">
-        <li>Completed internship programme covering Python programming, Machine Learning, and Deep Learning applied to real-world AI use cases.</li>
-        <li>Worked on Data Analysis &amp; Visualisation, AI Model Training, and real-world AI application development.</li>
-        <li>Demonstrated dedication, consistency, and teamwork throughout the programme — recognised by Programme Director Thanuja Reddy.</li>
-      </ul>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Data Analysis</span><span class="chip">AI Model Training</span></div>
-    </div>
-    <div class="tle"><div class="tl-dot done"></div>
-      <div class="tl-meta"><span class="tl-per">Mar – Jun 2026</span><span class="tl-tit">Scrum Master</span></div>
-      <p style="font-size:12px;color:var(--text-3);margin:2px 0 8px;font-family:var(--mono)">The Entrepreneurship Network · Remote</p>
-      <div class="co ok" style="margin:10px 0"><div class="co-t">Promoted within same engagement · Star Performer Award</div><p>Promoted from AI Intern based on delivery performance and team coordination. Awarded Star Performer recognition upon completion.</p></div>
-      <ul class="il" style="margin-bottom:10px">
-        <li>Led Agile ceremonies for a team of ~8 across 3-week sprint cycles on AI and automation projects.</li>
-        <li>Removed blockers between AI development and stakeholder expectations — consolidated async updates to reduce engineer context-switching.</li>
-        <li>Maintained documentation enabling new team members to self-onboard without synchronous handoffs.</li>
-        <li>Coordinated technical and non-technical stakeholders on scope, risk, and delivery timelines.</li>
-      </ul>
-      <div class="chips"><span class="chip">Agile</span><span class="chip">Scrum</span><span class="chip">Sprint Planning</span><span class="chip">Documentation</span></div>
-    </div>
-    <div class="tle"><div class="tl-dot done"></div>
-      <div class="tl-meta"><span class="tl-per">Nov 2025 – Mar 2026</span><span class="tl-tit">AI Intern</span></div>
-      <p style="font-size:12px;color:var(--text-3);margin:2px 0 8px;font-family:var(--mono)">The Entrepreneurship Network · Remote</p>
-      <ul class="il" style="margin-bottom:10px">
-        <li>Built AI-powered automation workflows for EduTech use cases using LLM APIs and n8n integration.</li>
-        <li>Developed FastAPI backend services: endpoint design, request validation, structured response generation, authentication.</li>
-        <li>Contributed to testing, documentation, and deployment support for AI-enabled applications.</li>
-      </ul>
-      <div class="chips"><span class="chip">FastAPI</span><span class="chip">LLM APIs</span><span class="chip">n8n</span><span class="chip">Python</span><span class="chip">Docker</span></div>
-    </div>
-    <div class="tle"><div class="tl-dot done"></div>
-      <div class="tl-meta"><span class="tl-per">Jan – Mar 2026</span><span class="tl-tit">IoT Cloud Engineer Virtual Internship</span></div>
-      <p style="font-size:12px;color:var(--text-3);margin:2px 0 8px;font-family:var(--mono)">EduSkills / AICTE · AWS Skill Builder · Grade O (Outstanding, 90–100)</p>
-      <ul class="il">
-        <li>120-hour programme covering AWS IoT, cloud architecture, and edge computing design patterns.</li>
-        <li>Labs on device-to-cloud messaging, data pipelines, and cloud-native monitoring.</li>
-      </ul>
-      <div class="chips"><span class="chip">AWS IoT</span><span class="chip">Cloud Architecture</span><span class="chip">Edge Computing</span></div>
+  <div id="elist">
+    <h2>Experience</h2>
+    <p style="margin-bottom:20px">Four roles and internships — click any entry to open the full write-up.</p>
+    <div class="tl" id="egrid"></div>
+    <hr>
+    <h3 style="margin-bottom:12px">Education</h3>
+    <div class="icard">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px">B.Tech Computer Science Engineering</div>
+        <div style="font-size:13px;color:var(--text-3)">KL University · Specialisation: Cloud &amp; Edge Computing</div></div>
+        <span class="chip">Expected Nov 2026</span>
+      </div>
+      <div style="font-size:13px;color:var(--text-2)">Relevant coursework: DSA · DBMS · Machine Learning Fundamentals · Cloud Computing · API Development</div>
     </div>
   </div>
-  <hr>
-  <h3 style="margin-bottom:12px">Education</h3>
-  <div class="icard">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
-      <div><div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px">B.Tech Computer Science Engineering</div>
-      <div style="font-size:13px;color:var(--text-3)">KL University · Specialisation: Cloud &amp; Edge Computing</div></div>
-      <span class="chip">Expected Nov 2026</span>
-    </div>
-    <div style="font-size:13px;color:var(--text-2)">Relevant coursework: DSA · DBMS · Machine Learning Fundamentals · Cloud Computing · API Development</div>
+  <div class="pdet" id="edet">
+    <button class="back-btn" onclick="closeExpDetail()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to experience
+    </button>
+    <div id="edet-content"></div>
   </div>
 </div>
 
@@ -652,7 +620,7 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 <!-- CERTS -->
 <div class="page" id="page-certs">
   <h2>Certifications</h2>
-  <p style="margin-bottom:20px">Seven verified credentials across cloud, multi-cloud networking, zero trust, automation, data analytics, and AI & ML.</p>
+  <p style="margin-bottom:20px">Six verified credentials across cloud, multi-cloud networking, zero trust, automation, and data analytics.</p>
   <div class="cert-grid">
     <div class="cert-card"><div class="cert-iss">Oracle Cloud</div><div class="cert-name">OCI 2025 Certified Architect Associate</div><div class="cert-desc">Cloud architecture, OCI service design, IAM, networking, storage, compute.</div></div>
     <div class="cert-card"><div class="cert-iss">Aviatrix</div><div class="cert-name">Certified Engineer — Multicloud Network Associate</div><div class="cert-desc">Multi-cloud networking, routing, security domains, cross-cloud connectivity across AWS/Azure/GCP.</div></div>
@@ -660,7 +628,6 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
     <div class="cert-card"><div class="cert-iss">Automation Anywhere</div><div class="cert-name">RPA Essentials</div><div class="cert-desc">Robotic process automation design, bot development, task automation, integration patterns.</div></div>
     <div class="cert-card"><div class="cert-iss">Forage · Deloitte</div><div class="cert-name">Data Analytics Job Simulation</div><div class="cert-desc">Data analysis workflows, business problem framing, presenting quantitative findings.</div></div>
     <div class="cert-card"><div class="cert-iss">Forage</div><div class="cert-name">Software Engineering Job Simulation</div><div class="cert-desc">SDLC, code review, technical problem-solving in a simulated engineering environment.</div></div>
-    <div class="cert-card"><div class="cert-iss">Venura · Certificate ID: VEN/INC/AI/26/087</div><div class="cert-name">Internship — AI &amp; Machine Learning with Python</div><div class="cert-desc">01 May 2026 – 30 June 2026. Python programming, Machine Learning, Deep Learning, Data Analysis &amp; Visualisation, AI Model Training, and real-world AI applications.</div></div>
   </div>
 </div>
 
@@ -809,6 +776,61 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 // For direct Anthropic API (set key in .env loaded by proxy):
 const API_URL = 'https://api.anthropic.com/v1/messages';
 const API_MODEL = 'claude-sonnet-4-6';
+
+// ── EXPERIENCE DATA ─────────────────────────────────────────
+const EXPERIENCES = [
+  {id:'e3',period:'May – Jun 2026',title:'AI & ML with Python Internship',org:'Venura · Remote',
+   listOrg:'Venura · Remote · Certificate ID: VEN/INC/AI/26/087',
+   badge:'Certificate ID: VEN/INC/AI/26/087',
+   summary:'Completed a structured internship in Artificial Intelligence & Machine Learning with Python. Worked on real-world AI/ML concepts including Python programming, machine learning fundamentals, deep learning, and data analysis, culminating in applied AI model training exercises.',
+   context:'This internship reinforced core ML fundamentals alongside the applied AI engineering work being done concurrently at The Entrepreneurship Network — theory and production practice running in parallel.',
+   responsibilities:[
+     'Completed internship programme covering Python programming, Machine Learning, and Deep Learning applied to real-world AI use cases.',
+     'Worked on Data Analysis &amp; Visualisation, AI Model Training, and real-world AI application development.',
+     'Demonstrated dedication, consistency, and teamwork throughout the programme — recognised by Programme Director Thanuja Reddy.'
+   ],
+   outcome:'Successfully completed the programme with recognition from Program Director Thanuja Reddy for sincere effort and valuable contribution throughout the internship.',
+   stack:['Python','Machine Learning','Deep Learning','Data Analysis','AI Model Training']},
+
+  {id:'e1',period:'Mar – Jun 2026',title:'Scrum Master',org:'The Entrepreneurship Network · Remote',
+   badge:'Promoted · Star Performer Award',
+   calloutTitle:'Promoted within same engagement · Star Performer Award',
+   calloutBody:'Promoted from AI Intern based on delivery performance and team coordination. Awarded Star Performer recognition upon completion.',
+   summary:'Promoted from AI Intern to Scrum Master within the same engagement, based on delivery performance and team coordination. Led Agile delivery for a team of roughly 8 engineers working on AI and automation projects across 3-week sprint cycles. Received the Star Performer Award at the close of this role.',
+   context:'The move from an individual contributor role to Scrum Master meant shifting focus from writing code to unblocking the people writing it — a different kind of engineering problem.',
+   responsibilities:[
+     'Led Agile ceremonies for a team of ~8 across 3-week sprint cycles on AI and automation projects.',
+     'Removed blockers between AI development and stakeholder expectations — consolidated async updates to reduce engineer context-switching.',
+     'Maintained documentation enabling new team members to self-onboard without synchronous handoffs.',
+     'Coordinated technical and non-technical stakeholders on scope, risk, and delivery timelines.'
+   ],
+   outcome:'Awarded the Star Performer Award at the end of the engagement, recognising consistent delivery performance and team coordination throughout the Scrum Master role.',
+   stack:['Agile','Scrum','Sprint Planning','Documentation']},
+
+  {id:'e2',period:'Nov 2025 – Mar 2026',title:'AI Intern',org:'The Entrepreneurship Network · Remote',
+   badge:null,
+   summary:'First professional exposure to building AI-powered systems in production. Built FastAPI backend services, integrated LLM APIs into real business workflows, and automated processes using n8n for an EduTech use case.',
+   context:'This role is where prompt design, API contracts, and workflow automation stopped being coursework concepts and became things that had to work reliably for real users.',
+   responsibilities:[
+     'Built AI-powered automation workflows for EduTech use cases using LLM APIs and n8n integration.',
+     'Developed FastAPI backend services: endpoint design, request validation, structured response generation, authentication.',
+     'Contributed to testing, documentation, and deployment support for AI-enabled applications.'
+   ],
+   outcome:'Performance and contribution during this role led directly to promotion into the Scrum Master position.',
+   stack:['FastAPI','LLM APIs','n8n','Python','Docker']},
+
+  {id:'e4',period:'Jan – Mar 2026',title:'IoT Cloud Engineer Virtual Internship',org:'EduSkills / AICTE · AWS Skill Builder',
+   listOrg:'EduSkills / AICTE · AWS Skill Builder · Grade O (Outstanding, 90–100)',
+   badge:'Grade O — Outstanding (90–100)',
+   summary:'A 10-week, 120-hour virtual internship delivered in collaboration with AICTE\'s National Internship Portal, using AWS Skill Builder curriculum. Focused on AWS IoT services, cloud architecture, and edge computing design patterns — directly aligned with the Cloud & Edge Computing specialisation.',
+   context:'This programme provided the structured cloud fundamentals that underpin the AWS work across several independent projects, including the event-driven Lambda pipeline and ECS Fargate deployment.',
+   responsibilities:[
+     '120-hour programme covering AWS IoT, cloud architecture, and edge computing design patterns.',
+     'Labs on device-to-cloud messaging, data pipelines, and cloud-native monitoring.'
+   ],
+   outcome:'Achieved Grade O (Outstanding, 90–100 band) — the top grade tier for the programme.',
+   stack:['AWS IoT','Cloud Architecture','Edge Computing']}
+];
 
 // ── PROJECT DATA ────────────────────────────────────────────
 const PROJECTS = [
@@ -1108,6 +1130,7 @@ const PAL = [
   {l:'Philosophy',p:'philosophy',t:'page'},{l:'AI Guide',p:'guide',t:'page'},
   {l:'Resume Hub',p:'resumes',t:'page'},{l:'Contact',p:'contact',t:'page'},
   ...PROJECTS.map(p=>({l:p.name,p:'projects',t:'project',id:p.id})),
+  ...EXPERIENCES.map(e=>({l:e.title,p:'experience',t:'experience',id:e.id})),
   {l:'Python',p:'skills',t:'skill'},{l:'FastAPI',p:'skills',t:'skill'},
   {l:'AWS',p:'skills',t:'skill'},{l:'Docker',p:'skills',t:'skill'},
   {l:'RAG',p:'skills',t:'skill'},{l:'LLMs',p:'skills',t:'skill'}
@@ -1145,13 +1168,14 @@ CONFIDENT SKILLS: Python, FastAPI, Flask, Node.js, React, LLMs, Prompt Engineeri
 WORKING: Kubernetes, Terraform, Isolation Forest/ML, BERT/NLP, JavaScript, Streamlit
 LEARNING: Prometheus, Grafana, LangGraph, Agentic AI, Vector DBs
 
-CERTIFICATIONS: Oracle OCI Architect Associate, Aviatrix Multicloud Network Associate, Zscaler ZTCA, Automation Anywhere RPA Essentials, Deloitte Data Analytics (Forage), Software Engineering (Forage), Venura AI & ML with Python Internship (May-June 2026, Certificate ID: VEN/INC/AI/26/087)`;
+CERTIFICATIONS: Oracle OCI Architect Associate, Aviatrix Multicloud Network Associate, Zscaler ZTCA, Automation Anywhere RPA Essentials, Deloitte Data Analytics (Forage), Software Engineering (Forage)`;
 
 let gMode='general', gHist=[], palSel=-1, palFilt=[...PAL];
 
 // ── INIT ──────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',()=>{
   renderProjects(PROJECTS);
+  renderExperiences();
   renderRepos();
   renderSkills();
   const saved=localStorage.getItem('theme');
@@ -1210,6 +1234,7 @@ function palGo(idx){
   const item=palFilt[idx];if(!item)return;
   closePal();nav(item.p);
   if(item.t==='project'&&item.id) setTimeout(()=>openDetail(item.id),150);
+  if(item.t==='experience'&&item.id) setTimeout(()=>openExpDetail(item.id),150);
 }
 document.getElementById('palInp').addEventListener('keydown',e=>{
   const items=document.querySelectorAll('.pal-it');
@@ -1288,6 +1313,51 @@ function openDetail(id){
 function closeDetail(){
   document.getElementById('plist').style.display='block';
   document.getElementById('pdet').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+// ── EXPERIENCE LIST + DETAIL ─────────────────────────────────
+function renderExperiences(){
+  document.getElementById('egrid').innerHTML=EXPERIENCES.map(e=>`
+    <div class="tle">
+      <div class="tl-dot done"></div>
+      <div class="tl-meta">
+        <span class="tl-per">${e.period}</span>
+        <span class="tl-tit tl-tit-link" onclick="openExpDetail('${e.id}')">${e.title}</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);margin:2px 0 8px;font-family:var(--mono)">${e.listOrg||e.org}</p>
+      ${e.calloutTitle?`<div class="co ok" style="margin:10px 0"><div class="co-t">${e.calloutTitle}</div><p>${e.calloutBody}</p></div>`:''}
+      <ul class="il" style="margin-bottom:10px">${e.responsibilities.map(r=>`<li>${r}</li>`).join('')}</ul>
+      <div class="chips">${e.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div>
+    </div>`).join('');
+}
+function openExpDetail(id){
+  const e=EXPERIENCES.find(x=>x.id===id);if(!e)return;
+  document.getElementById('elist').style.display='none';
+  document.getElementById('edet').classList.add('open');
+  document.getElementById('edet-content').innerHTML=`
+    <p style="font-size:11px;font-family:var(--mono);color:var(--text-3);margin-bottom:5px">Experience</p>
+    <h1 style="font-size:24px;margin-bottom:6px">${e.title}</h1>
+    <p style="font-size:13px;color:var(--text-3);font-family:var(--mono);margin-bottom:14px">${e.org} · ${e.period}</p>
+    ${e.badge?`<div class="co ok" style="margin-bottom:18px"><div class="co-t">${e.badge}</div></div>`:''}
+    <p style="font-size:15px;color:var(--text-2);line-height:1.75;max-width:680px;margin-bottom:24px">${e.summary}</p>
+    <hr>
+    <h3 style="margin-bottom:7px">Context</h3>
+    <p>${e.context}</p>
+    <hr>
+    <h3 style="margin-bottom:7px">Responsibilities</h3>
+    <ul class="il">${e.responsibilities.map(r=>`<li>${r}</li>`).join('')}</ul>
+    <hr>
+    <h3 style="margin-bottom:7px">Outcome</h3>
+    <div class="co info"><div class="co-t">Result</div><p>${e.outcome}</p></div>
+    <hr>
+    <h3 style="margin-bottom:8px">Skills &amp; Technologies</h3>
+    <div class="tpills">${e.stack.map(s=>`<span class="tpill hl">${s}</span>`).join('')}</div>`;
+  window.scrollTo(0,0);
+}
+function closeExpDetail(){
+  document.getElementById('elist').style.display='block';
+  document.getElementById('edet').classList.remove('open');
   window.scrollTo(0,0);
 }
 
